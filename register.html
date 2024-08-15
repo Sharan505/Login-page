@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="row">
+        <div class="wrapper col-5 bg-light container rounded">
+            <h1 class="rounded mt-2 py-2 d-flex justify-content-center">Register</h1>
+            <div class="row mt-4">
+                <div class="col-9">
+                    <input type="text" class="form-control" placeholder="Enter your Email ID" required>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-dark text-white">Send OTP</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><input type="text" class="form-control mt-4" placeholder="Enter OTP" required></div>
+            </div>
+            
+            
+            <input type="password" class="form-control mt-4" placeholder="Create a strong password" required>
+            
+            <input type="password" id="password" class="form-control mt-4" placeholder="Re-type password" required>
+            <ion-icon class="eyeIcon" name="eye-outline" id="togglePassword"></ion-icon>
+            <div class="row mt-4">
+                <div class="col-3">
+                    <label for="DOB" class="py-1">Date of Birth</label>
+                </div>
+                <div class="col-3">
+                    <input class="Cal rounded p-1" type="date" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label for="gender">Gender</label>
+                </div>
+                <div class="col-3">
+                    <label for="male">Male <input name="gender" value="male" type="radio" required></label>
+                </div>
+                <div class="col-3">
+                    <label for="female">Female <input name="gender" value="female" type="radio"></label>
+                </div>
+                <div class="col-3">
+                    <label for="others">Others <input name="gender" value="others" type="radio"></label>
+                </div>
+            </div>
+
+            <button class="btn btn-dark form-control text-white my-4">Register</button>
+        </div>
+    </div>
+</body>
+<style>
+    @keyframes transitionIn {
+        from{
+            transform: translateX(10%);
+            opacity: 0;
+        }
+
+        to{
+            transform: translateX(0);
+            opacity: 100%;
+        }
+    }
+    .wrapper{
+        position: relative;
+        top: 50px;
+        /* animation: transitionIn 0.5s; */
+    }
+    .Cal{
+        cursor: pointer;
+    }
+    .eyeIcon{
+        position: absolute;
+        right: 30px;
+        top: 57%;
+        font-size: 22px;
+        z-index: 2;
+        cursor: pointer;
+        user-select: none;
+    }
+</style>
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+    // Toggle the type attribute
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+    
+    // Toggle the icon
+        
+        if(type === 'password'){
+            togglePassword.setAttribute('name','eye-outline');
+        }
+        else{
+            togglePassword.setAttribute('name','eye-off-outline');
+        }
+    });
+
+</script>
+</html>
